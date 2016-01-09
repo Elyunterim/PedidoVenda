@@ -35,6 +35,31 @@
 			<p:outputLabel value="Senha" for="senha"></p:outputLabel>
 			<p:password id="senha" size="20" maxlength="12"></p:password>
 		</p:panelGrid>
+		
+		<br/>
+		
+		<p:panelGrid columns="2" id="painelGrupo" styleClass="semBorda">			
+			<p:selectOneMenu id="grupo">
+				<f:selectItem itemLabel="Selecione o grupo"></f:selectItem>
+			</p:selectOneMenu>
+			
+			<p:button value="Adicionar grupo"/>
+		</p:panelGrid>
+		
+		
+		<p:dataTable id="grupoTable" value="" var="grupo" 
+		style="margin-top: 20px" emptyMessage="Nenhum grupo encontrado" rows="20" paginator="true"
+		paginatorAlwaysVisible="false" paginatorPosition="bottom" >
+		
+		<p:column headerText="Grupo" style="text-algin: left;">
+			<h:outputText value="Administradores" />			
+		</p:column>
+				
+		<p:column headerText="Ações" style="text-align:center; width: 100px;">		
+			<p:commandButton icon="ui-icon-trash" title="Excluir" />
+		</p:column>
+		</p:dataTable>
+		
 	</h:form>
 	</ui:define>
 		  
