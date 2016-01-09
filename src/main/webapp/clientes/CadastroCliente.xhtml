@@ -1,48 +1,90 @@
 <ui:composition template="/WEB-INF/template/LayoutPadrao.xhtml"
-	  xmlns="http://www.w3.org/1999/xhtml"
-	  xmlns:h="http://java.sun.com/jsf/html"
-	  xmlns:f="http://java.sun.com/jsf/core"
-	  xmlns:ui="http://java.sun.com/jsf/facelets"
-	  xmlns:p="http://primefaces.org/ui">
+	xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:p="http://primefaces.org/ui">
 
 	<ui:define name="titulo">Novo cliente</ui:define>
-	
+
 	<ui:define name="corpo">
-	<h1>Novo cliente</h1>
-	
-	<h:form id="frm">
-		<p:toolbar>
-			<p:toolbarGroup>
-				<p:button value="Novo cliente" outcome="/clientes/CadastroCliente"></p:button>
-				<p:commandButton value="Salvar" id="botaoSalvar"></p:commandButton>
-			</p:toolbarGroup>
-			
-			<p:toolbarGroup align="right">
-				<p:button value="Pesquisa" outcome="/clientes/PesquisaClientes"></p:button>
-			</p:toolbarGroup>
-		</p:toolbar>
-		
-		
-		<p:panelGrid columns="2" id="painel" style="width:100%; margin-top:20px;"	
-				columnClasses="rotulo, campo">		
-			
-			<p:outputLabel value="Nome" for="nome"></p:outputLabel>
-			<p:inputText id="nome" size="60" maxlength="80"></p:inputText>
-			
-			<p:outputLabel value="Tipo" for="tipo" />
+		<h1>Novo cliente</h1>
+
+		<h:form id="frm">
+			<p:toolbar>
+				<p:toolbarGroup>
+					<p:button value="Novo cliente" outcome="/clientes/CadastroCliente"></p:button>
+					<p:commandButton value="Salvar" id="botaoSalvar"></p:commandButton>
+				</p:toolbarGroup>
+
+				<p:toolbarGroup align="right">
+					<p:button value="Pesquisa" outcome="/clientes/PesquisaClientes"></p:button>
+				</p:toolbarGroup>
+			</p:toolbar>
+
+
+			<p:panelGrid columns="2" id="painel"
+				style="width:100%; margin-top:20px;" columnClasses="rotulo, campo">
+
+				<p:outputLabel value="Nome" for="nome"></p:outputLabel>
+				<p:inputText id="nome" size="60" maxlength="80"></p:inputText>
+
+				<p:outputLabel value="Tipo" for="tipo" />
 				<p:selectOneRadio id="tipo" required="true" styleClass="semBorda">
 					<f:selectItem itemLabel="Física" itemValue="fisica" />
-					<f:selectItem itemLabel="Jurídica" itemValue="juridica" />				
+					<f:selectItem itemLabel="Jurídica" itemValue="juridica" />
 				</p:selectOneRadio>
+
+				<p:outputLabel value="Cnpj" for="cnpj"></p:outputLabel>
+				<p:inputText id="cnpj" size="20" maxlength="18"></p:inputText>
+
+
+				<p:outputLabel value="Email" for="email"></p:outputLabel>
+				<p:inputText id="email" size="40" maxlength="80"></p:inputText>
+			</p:panelGrid>
 			
-			<p:outputLabel value="Cnpj" for="cnpj"></p:outputLabel>
-			<p:inputText id="cnpj" size="20" maxlength="18"></p:inputText>	
 			
+			<p:panelGrid columns="1" id="endereco" styleClass="semBorda">
+				<br/>
+				<p:button value="Adicionar endereço"/>
+			</p:panelGrid>			
 			
-			<p:outputLabel value="Email" for="email"></p:outputLabel>
-			<p:inputText id="email" size="40" maxlength="80"></p:inputText>
-		</p:panelGrid>
-	</h:form>
+			<p:dataTable id="usuariosTable"
+				value="#{pesquisaEnderecoBean.enderecosFiltrados}" var="cliente"
+				style="margin-top: 20px" emptyMessage="Nenhum endereço encontrado"
+				rows="20" paginator="true" paginatorAlwaysVisible="false"
+				paginatorPosition="bottom">
+
+				<p:column headerText="Logradouro">
+					<h:outputText value="Av Bonifácio Vilela" />
+				</p:column>
+
+				<p:column headerText="Numero" style="text-align: center; width: 100px">
+					<h:outputText value="1537" />
+				</p:column>
+
+				<p:column headerText="Complemento"
+					style="text-align: center; width: 200px">
+					<h:outputText value="Ap 25" />
+				</p:column>
+				
+				<p:column headerText="CEP"
+					style="text-align: center; width: 100px">
+					<h:outputText value="Ap 25" />
+				</p:column>
+				
+				<p:column headerText="Cidade/UF"
+					style="text-align: center; width: 200px">
+					<h:outputText value="Ponta Grossa/PR" />
+				</p:column>
+
+				<p:column headerText="Ações"
+					style="text-align:center; width: 100px;">
+					<p:button icon="ui-icon-pencil" title="Editar" />
+					<p:commandButton icon="ui-icon-trash" title="Excluir" />
+				</p:column>
+			</p:dataTable>
+		</h:form>
 	</ui:define>
-		  
+
 </ui:composition>
