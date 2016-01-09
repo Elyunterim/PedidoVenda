@@ -1,0 +1,60 @@
+<ui:composition template="/WEB-INF/template/LayoutPadrao.xhtml"
+	  xmlns="http://www.w3.org/1999/xhtml"
+	  xmlns:h="http://java.sun.com/jsf/html"
+	  xmlns:f="http://java.sun.com/jsf/core"
+	  xmlns:ui="http://java.sun.com/jsf/facelets"
+	  xmlns:p="http://primefaces.org/ui">
+
+	<ui:define name="titulo">Pesquisa de clientes</ui:define>
+	
+	<ui:define name="corpo">
+	<h1>Pesquisa de clientes</h1>
+	
+	<h:form id="frm">
+		<p:toolbar>
+			<p:toolbarGroup>				
+				<p:commandButton value="Pesquisar"/>
+			</p:toolbarGroup>
+			
+			<p:toolbarGroup align="right">
+				<p:button value="Novo" outcome="/clientes/CadastroCliente"/>
+			</p:toolbarGroup>
+		</p:toolbar>
+		
+		
+		<p:panelGrid columns="2" id="painel" style="width:100%; margin-top:20px;"	
+				columnClasses="rotulo, campo">
+				
+			<p:outputLabel value="CPF/CNPJ"/>
+				<p:inputText size="20"/>
+				
+			<p:outputLabel value="Nome"/>
+				<p:inputText size="60"/>							
+		</p:panelGrid>
+				
+		<p:dataTable id="clientesTable" value="#{pesquisaClientesBean.clientesFiltrados}" var="cliente" 
+		style="margin-top: 20px" emptyMessage="Nenhum cliente encontrado" rows="20" paginator="true"
+		paginatorAlwaysVisible="false" paginatorPosition="bottom" >
+		
+		<p:column headerText="Nome">
+			<h:outputText value="Supermercado Joao das Couves Ltda" />			
+		</p:column>
+		
+		<p:column headerText="Tipo" style="text-align: center; width: 150px">
+			<h:outputText value="Juridica"/>
+		</p:column>
+		
+		<p:column headerText="CPF/CNPJ" style="text-align: center; width: 200px">
+			<h:outputText value="02.493738/000183"/>
+		</p:column>
+				
+		<p:column headerText="Ações" style="text-align:center; width: 100px;">
+			<p:button icon="ui-icon-pencil" title="Editar"/>
+			<p:commandButton icon="ui-icon-trash" title="Excluir" />
+		</p:column>
+		</p:dataTable>
+	
+	</h:form>
+	
+	</ui:define>		  
+</ui:composition>

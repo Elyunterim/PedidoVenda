@@ -1,0 +1,41 @@
+<ui:composition template="/WEB-INF/template/LayoutPadrao.xhtml"
+	  xmlns="http://www.w3.org/1999/xhtml"
+	  xmlns:h="http://java.sun.com/jsf/html"
+	  xmlns:f="http://java.sun.com/jsf/core"
+	  xmlns:ui="http://java.sun.com/jsf/facelets"
+	  xmlns:p="http://primefaces.org/ui">
+
+	<ui:define name="titulo">Novo usuário</ui:define>
+	
+	<ui:define name="corpo">
+	<h1>Novo usuário</h1>
+	
+	<h:form id="frm">
+		<p:toolbar>
+			<p:toolbarGroup>
+				<p:button value="Novo usuario" outcome="/usuarios/CadastroUsuario"></p:button>
+				<p:commandButton value="Salvar" id="botaoSalvar"></p:commandButton>
+			</p:toolbarGroup>
+			
+			<p:toolbarGroup align="right">
+				<p:button value="Pesquisa"></p:button>
+			</p:toolbarGroup>
+		</p:toolbar>
+		
+		
+		<p:panelGrid columns="2" id="painel" style="width:100%; margin-top:20px;"	
+				columnClasses="rotulo, campo">		
+			
+			<p:outputLabel value="Nome" for="nome"></p:outputLabel>
+			<p:inputText id="nome" size="40" maxlength="80"></p:inputText>
+			
+			<p:outputLabel value="Email" for="email"></p:outputLabel>
+			<p:inputText id="email" size="40" maxlength="80"></p:inputText>
+			
+			<p:outputLabel value="Senha" for="senha"></p:outputLabel>
+			<p:password id="senha" size="20" maxlength="12"></p:password>
+		</p:panelGrid>
+	</h:form>
+	</ui:define>
+		  
+</ui:composition>

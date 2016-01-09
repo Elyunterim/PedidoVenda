@@ -1,0 +1,78 @@
+@CHARSET "utf-8";
+
+body{
+	font-size: 12px;
+	font-family: Arial,Helvetica, sans-serif;
+	margin: 0px;
+	font-weight: normal;
+}
+
+#corpo{padding: 5px;}
+
+header{
+	padding: 0px 0px;
+	margin-bottom: 20px;background-color: #3097D1;
+	color: #fff;
+	box-shadown: 0px 2px 2px #ccc;
+	height: 40px;	
+}
+
+header img{
+	padding:5px; 
+}
+
+.rotulo{
+	width: 150px;
+}
+
+footer{
+	padding: 0px 8px;
+	margin-bottom: 10px;
+}
+
+#login-dialog{	
+	width: 300px;
+	height: 200px;
+	margin: auto;
+	padding:20px;
+	background-color: #f2f2f2;
+	border-radiux: 4px;		
+}
+
+h1{
+	font-size: 24px;
+	font-weight: 500;
+	padding: 5px;
+	margin: 0px;
+}
+
+.ajax-status{
+	position: fixed;
+	width: 35px;
+	height: 35px;
+	right: 15px;
+	top: 55px;
+}
+
+.semBorda tr, .semBorda td {
+	border: none !important;	
+}
+
+.produto-tabela input{
+	width: 99%;
+}
+
+/* Customização do TabView*/
+.ui-tabs .ui-tabs-panel{
+	padding: 0.5em 0.2 em !important;
+}
+
+.ui-tabs{
+	padding: 0px !important;
+}
+
+.ui-tabs .ui-tabs-top > .ui-tabs-nav{
+	padding: 0px !important;
+}
+
+
