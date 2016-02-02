@@ -50,9 +50,15 @@
 				
 		<p:column headerText="Ações" style="text-align:center; width: 100px;">
 			<p:button icon="ui-icon-pencil" title="Editar"/>
-			<p:commandButton icon="ui-icon-trash" title="Excluir" />
+			<p:commandButton icon="ui-icon-trash" title="Excluir" oncomplete="confirmacaoExclusao.show();"/>
 		</p:column>
 		</p:dataTable>
+		
+		<p:confirmDialog header="Exclusão de cliente" message="Tem certeza que deseja excluir este cliente?" widgetVar="confirmacaoExclusao">
+			<p:button value="Não" onclick="confirmacaoExclusao.hide(); return false;"/>
+			<p:button value="Sim" oncomplete="confirmacaoExclusao.hide();"/>
+		</p:confirmDialog>
+		
 	
 	</h:form>
 	

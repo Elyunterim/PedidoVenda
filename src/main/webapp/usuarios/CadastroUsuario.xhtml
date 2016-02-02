@@ -56,9 +56,14 @@
 		</p:column>
 				
 		<p:column headerText="Ações" style="text-align:center; width: 100px;">		
-			<p:commandButton icon="ui-icon-trash" title="Excluir" />
+			<p:commandButton icon="ui-icon-trash" title="Excluir" oncomplete="confirmaExclusao.show();" />
 		</p:column>
 		</p:dataTable>
+		
+		<p:confirmDialog header="Exclusão de grupo" message="Confirma a exclusão desse grupo?" widgetVar="confirmaExclusao">
+			<p:commandButton value="Sim" onclick="confimraExclusao.hide(); return false;"/>
+			<p:commandButton value="Não" oncomplete="confirmaExclusao.hide();"/>
+		</p:confirmDialog>
 		
 	</h:form>
 	</ui:define>

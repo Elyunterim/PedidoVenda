@@ -44,10 +44,36 @@
 			</p:panelGrid>
 			
 			
-			<p:panelGrid columns="1" id="endereco" styleClass="semBorda">
-				<br/>
-				<p:button value="Adicionar endereço"/>
+			<p:panelGrid columns="1" styleClass="semBorda">	
+				<br/>			
+				<p:commandButton value="Adicionar endereço" oncomplete="inclusaoEndereco.show();"/>
 			</p:panelGrid>			
+					
+			<p:confirmDialog header="Inclusão de endereço" widgetVar="inclusaoEndereco">
+				<p:panelGrid columns="2" id="endereco" styleClass="semBorda">
+					<p:outputLabel value="Logradouro"/>
+					<p:inputText id="logradouro" size="60" maxlength="80"/>
+										
+					<p:outputLabel value="Numero"/>
+					<p:inputText id="numero" size="10"/>
+					
+					<p:outputLabel value="Complemento"/>
+					<p:inputText id="complemento" size="40" maxlength="80"/>
+					
+					<p:outputLabel value="Cep"/>
+					<p:inputText id="cep" size="20"/>
+								
+					<p:outputLabel value="Cidade"/>
+					<p:inputText id="cidade" size="30"/>
+						
+					<p:outputLabel value="UF"/>
+					<p:inputText id="uf" size="5"/>
+					
+					<br/>		
+					<p:commandButton value="Incluir" onclick="inclusaoEndereco.hide();"/>
+				</p:panelGrid>	
+					
+			</p:confirmDialog>
 			
 			<p:dataTable id="usuariosTable"
 				value="#{pesquisaEnderecoBean.enderecosFiltrados}" var="cliente"
@@ -81,9 +107,15 @@
 				<p:column headerText="Ações"
 					style="text-align:center; width: 100px;">
 					<p:button icon="ui-icon-pencil" title="Editar" />
-					<p:commandButton icon="ui-icon-trash" title="Excluir" />
+					<p:commandButton icon="ui-icon-trash" title="Excluir" oncomplete="exclusaoEndereco.show();"/>
 				</p:column>
 			</p:dataTable>
+			
+			<p:confirmDialog header="Exclusão de endereço" message="Deseja excluir este endereço?" widgetVar="exclusaoEndereco">
+				<p:commandButton value="Sim" onclick="exclusaoEndereco.hide(); return false;"/>
+				<p:commandButton value="Não" oncomplete="exclusaoEndereco.hide();"/>
+			</p:confirmDialog>
+			
 		</h:form>
 	</ui:define>
 
