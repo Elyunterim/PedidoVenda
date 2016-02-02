@@ -11,10 +11,12 @@ body{
 
 header{
 	padding: 0px 0px;
-	margin-bottom: 20px;background-color: #3097D1;
+	margin-bottom: 20px;
+	background-color: #fff;
 	color: #fff;
 	box-shadown: 0px 2px 2px #ccc;
-	height: 40px;	
+	height: 40px;
+	border-bottom: 1px solid #DFEBFB;	
 }
 
 header img{
@@ -75,4 +77,8 @@ h1{
 	padding: 0px !important;
 }
 
-
+.menu-sistema{
+	border: 0px !important;
+	padding: 0px !important;
+	background: none !important;
+}
