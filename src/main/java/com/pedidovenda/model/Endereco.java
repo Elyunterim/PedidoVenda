@@ -2,10 +2,18 @@ package com.pedidovenda.model;
 
 import java.io.Serializable;
 
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
+import javax.persistence.ManyToOne;
+
+@Entity
 public class Endereco implements Serializable {
 
 	private static final long serialVersionUID = 1L;
 
+	@Id
+	@GeneratedValue
 	private Long id;
 	private String logradouro;
 	private String numero;
@@ -13,6 +21,8 @@ public class Endereco implements Serializable {
 	private String cidade;
 	private String uf;
 	private String cep;
+	
+	@ManyToOne
 	private Cliente cliente;
 
 	public Long getId() {
