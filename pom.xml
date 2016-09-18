@@ -41,7 +41,7 @@
 			<version>1.0.10</version>
 			<scope>compile</scope>
 		</dependency>
-		
+				
 		<!-- Núcleo do Hibernate -->
 		<dependency>
 			<groupId>org.hibernate</groupId>
@@ -57,6 +57,15 @@
 			<version>4.2.3.Final</version>
 			<scope>compile</scope>
 		</dependency>
+		
+		<!-- Implementação do Bean Validation -->
+		<!-- https://mvnrepository.com/artifact/org.hibernate/hibernate-validator -->
+		<dependency>
+		    <groupId>org.hibernate</groupId>
+		    <artifactId>hibernate-validator</artifactId>
+		    <version>5.1.0.Final</version>
+		</dependency>
+		
 		
 		<!-- Driver JDBC do MySQL -->
 		<dependency>

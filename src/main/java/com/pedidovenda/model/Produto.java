@@ -3,9 +3,11 @@ package com.pedidovenda.model;
 import java.io.Serializable;
 import java.math.BigDecimal;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.validation.constraints.NotNull;
 
 @Entity
 public class Produto implements Serializable {
@@ -19,6 +21,9 @@ public class Produto implements Serializable {
 	private String nome;
 	private String sku;
 	private BigDecimal valorUnitario;
+	
+	@NotNull
+	@Column(name= "quantidade_estoque", nullable = false, length = 5)
 	private Integer quantidadeEstoque;
 	private Categoria categoria;
 
