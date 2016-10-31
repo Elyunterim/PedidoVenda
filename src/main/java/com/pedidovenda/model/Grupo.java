@@ -13,17 +13,13 @@ import javax.persistence.Table;
 public class Grupo implements Serializable {
 
 	private static final long serialVersionUID = 1L;
+	
+	private Long id;
+	private String nome;
+	private String descricao;
 
 	@Id
 	@GeneratedValue
-	private Long id;
-	
-	@Column(nullable = false, length = 20)
-	private String nome;
-	
-	@Column(nullable = false, length = 150)
-	private String descricao;
-
 	public Long getId() {
 		return id;
 	}
@@ -32,6 +28,7 @@ public class Grupo implements Serializable {
 		this.id = id;
 	}
 
+	@Column(nullable = false, length = 40)
 	public String getNome() {
 		return nome;
 	}
@@ -40,6 +37,7 @@ public class Grupo implements Serializable {
 		this.nome = nome;
 	}
 
+	@Column(nullable = false, length = 80)
 	public String getDescricao() {
 		return descricao;
 	}
