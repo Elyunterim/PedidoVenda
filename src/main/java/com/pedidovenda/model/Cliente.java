@@ -18,27 +18,16 @@ import javax.persistence.Table;
 public class Cliente implements Serializable {
 
 	private static final long serialVersionUID = 1L;
-
+	
+	private Long id;
+	private String nome;	
+	private String email;
+	private String documentoReceitaFederal;	
+	private TipoPessoa tipo;
+	private List<Endereco> enderecos = new ArrayList<>();
+	
 	@Id
 	@GeneratedValue
-	private Long id;
-	
-	@Column(nullable = false, length = 100)
-	private String nome;
-	
-	@Column(nullable = false, length = 255)
-	private String email;
-	
-	@Column(name = "doc_receita_federa", nullable = false, length = 14)
-	private String documentoReceitaFeredral;
-	
-	@Enumerated(EnumType.STRING)
-	@Column(nullable = false, length = 10)
-	private TipoPessoa tipo;
-
-	@OneToMany(mappedBy = "cliente", cascade = CascadeType.ALL)
-	private List<Endereco> enderecos = new ArrayList<>();
-
 	public Long getId() {
 		return id;
 	}
@@ -46,7 +35,8 @@ public class Cliente implements Serializable {
 	public void setId(Long id) {
 		this.id = id;
 	}
-
+	
+	@Column(nullable = false, length = 100)
 	public String getNome() {
 		return nome;
 	}
@@ -54,7 +44,8 @@ public class Cliente implements Serializable {
 	public void setNome(String nome) {
 		this.nome = nome;
 	}
-
+	
+	@Column(nullable = false, length = 255)
 	public String getEmail() {
 		return email;
 	}
@@ -63,28 +54,32 @@ public class Cliente implements Serializable {
 		this.email = email;
 	}
 
-	public String getDocumentoReceitaFeredral() {
-		return documentoReceitaFeredral;
+	@Column(name = "doc_receita_federal", nullable = false, length = 14)
+	public String getDocumentoReceitaFederal() {
+		return documentoReceitaFederal;
 	}
 
-	public void setDocumentoReceitaFeredral(String documentoReceitaFeredral) {
-		this.documentoReceitaFeredral = documentoReceitaFeredral;
+	public void setDocumentoReceitaFederal(String documentoReceitaFederal) {
+		this.documentoReceitaFederal = documentoReceitaFederal;
 	}
-
-	public List<Endereco> getEnderecos() {
-		return enderecos;
-	}
-
-	public void setEnderecos(List<Endereco> enderecos) {
-		this.enderecos = enderecos;
-	}
-
+	
+	@Enumerated(EnumType.STRING)
+	@Column(nullable = false, length = 10)
 	public TipoPessoa getTipo() {
 		return tipo;
 	}
 
 	public void setTipo(TipoPessoa tipo) {
 		this.tipo = tipo;
+	}
+	
+	@OneToMany(mappedBy = "cliente", cascade = CascadeType.ALL)
+	public List<Endereco> getEnderecos() {
+		return enderecos;
+	}
+
+	public void setEnderecos(List<Endereco> enderecos) {
+		this.enderecos = enderecos;
 	}
 
 	@Override
