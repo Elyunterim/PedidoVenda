@@ -20,67 +20,41 @@ import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
+import javax.validation.constraints.NotNull;
 
 @Entity
 @Table(name = "pedido")
 public class Pedido implements Serializable {
 
 	private static final long serialVersionUID = 1L;
-
+	
+	private Long id;	
+	private Date dataCriacao;
+	private String observacao;	
+	private Date dataEntrega;	
+	private BigDecimal valorFrete;	
+	private BigDecimal valorDesconto;
+	private BigDecimal valorTotal;
+	private StatusPedido status;
+	private FormaPagamento formaPagamento;
+	private Usuario vendedor;
+	private Cliente cliente;
+	private EnderecoEntrega enderecoEntrega;
+	private List<ItemPedido> itens = new ArrayList<>();
+	
 	@Id
 	@GeneratedValue
-	private Long id;
-	
-	@Column(name = "data_criacao", nullable = false)
-	@Temporal(TemporalType.TIMESTAMP)
-	private Date dataCriacao;
-	
-	@Column(columnDefinition = "text")
-	private String observacao;
-	
-	@Temporal(TemporalType.DATE)
-	@Column(name = "data_entrega", nullable = false)
-	private Date dataEntrega;
-	
-	@Column(name = "valor_frete", nullable = false, precision = 10, scale = 2)
-	private BigDecimal valorFrete;
-	
-	@Column(name = "valor_desconto", nullable = false, precision = 10, scale = 2)
-	private BigDecimal valorDesconto;
-	
-	@Column(name = "valor_total", nullable = false, precision = 10, scale = 2)
-	private BigDecimal valorTotal;
-	
-	@Column(nullable = false, length = 20)
-	@Enumerated(EnumType.STRING)
-	private StatusPedido status;
-	
-	@Enumerated(EnumType.STRING)
-	@Column(name = "forma_pagamento", nullable = false, length = 20)
-	private FormaPagamento formapagamento;
-	
-	@ManyToOne
-	@JoinColumn(name = "vendedor_id", nullable = false)
-	private Usuario vendedor;
-	
-	@ManyToOne
-	@JoinColumn(name = "cliente_id", nullable = false)
-	private Cliente cliente;
-	
-	@Embedded
-	private EnderecoEntrega enderecoEntrega;
-	
-	@OneToMany(mappedBy = "pedido", cascade = CascadeType.ALL, orphanRemoval = true)	
-	private List<ItemPedido> itens = new ArrayList<>();
-
 	public Long getId() {
 		return id;
 	}
 
 	public void setId(Long id) {
 		this.id = id;
-	}
-
+	}	
+	
+	@NotNull
+	@Temporal(TemporalType.TIMESTAMP)
+	@Column(name = "data_criacao", nullable = false)	
 	public Date getDataCriacao() {
 		return dataCriacao;
 	}
@@ -88,7 +62,8 @@ public class Pedido implements Serializable {
 	public void setDataCriacao(Date dataCriacao) {
 		this.dataCriacao = dataCriacao;
 	}
-
+		
+	@Column(columnDefinition = "text")
 	public String getObservacao() {
 		return observacao;
 	}
@@ -96,7 +71,20 @@ public class Pedido implements Serializable {
 	public void setObservacao(String observacao) {
 		this.observacao = observacao;
 	}
+	
+	@NotNull
+	@Temporal(TemporalType.DATE)
+	@Column(name = "data_entrega", nullable = false)
+	public Date getDataEntrega() {
+		return dataEntrega;
+	}
 
+	public void setDataEntrega(Date dataEntrega) {
+		this.dataEntrega = dataEntrega;
+	}
+	
+	@NotNull
+	@Column(name = "valor_frete", nullable = false, precision = 10, scale = 2)
 	public BigDecimal getValorFrete() {
 		return valorFrete;
 	}
@@ -104,7 +92,9 @@ public class Pedido implements Serializable {
 	public void setValorFrete(BigDecimal valorFrete) {
 		this.valorFrete = valorFrete;
 	}
-
+	
+	@NotNull
+	@Column(name = "valor_desconto", nullable = false, precision = 10, scale = 2)
 	public BigDecimal getValorDesconto() {
 		return valorDesconto;
 	}
@@ -112,7 +102,9 @@ public class Pedido implements Serializable {
 	public void setValorDesconto(BigDecimal valorDesconto) {
 		this.valorDesconto = valorDesconto;
 	}
-
+	
+	@NotNull
+	@Column(name = "valor_total", nullable = false, precision = 10, scale = 2)
 	public BigDecimal getValorTotal() {
 		return valorTotal;
 	}
@@ -120,7 +112,10 @@ public class Pedido implements Serializable {
 	public void setValorTotal(BigDecimal valorTotal) {
 		this.valorTotal = valorTotal;
 	}
-
+	
+	@NotNull
+	@Enumerated(EnumType.STRING)
+	@Column(nullable = false, length = 20)	
 	public StatusPedido getStatus() {
 		return status;
 	}
@@ -128,15 +123,21 @@ public class Pedido implements Serializable {
 	public void setStatus(StatusPedido status) {
 		this.status = status;
 	}
-
-	public FormaPagamento getFormapagamento() {
-		return formapagamento;
+	
+	@NotNull
+	@Enumerated(EnumType.STRING)
+	@Column(name = "forma_pagamento", nullable = false, length = 20)
+	public FormaPagamento getFormaPagamento() {
+		return formaPagamento;
 	}
 
-	public void setFormapagamento(FormaPagamento formapagamento) {
-		this.formapagamento = formapagamento;
+	public void setFormaPagamento(FormaPagamento formaPagamento) {
+		this.formaPagamento = formaPagamento;
 	}
 
+	@NotNull	
+	@ManyToOne
+	@JoinColumn(name = "vendedor_id", nullable = false)
 	public Usuario getVendedor() {
 		return vendedor;
 	}
@@ -145,6 +146,9 @@ public class Pedido implements Serializable {
 		this.vendedor = vendedor;
 	}
 
+	@NotNull
+	@ManyToOne
+	@JoinColumn(name = "cliente_id", nullable = false)
 	public Cliente getCliente() {
 		return cliente;
 	}
@@ -152,7 +156,8 @@ public class Pedido implements Serializable {
 	public void setCliente(Cliente cliente) {
 		this.cliente = cliente;
 	}
-
+	
+	@Embedded
 	public EnderecoEntrega getEnderecoEntrega() {
 		return enderecoEntrega;
 	}
@@ -160,17 +165,14 @@ public class Pedido implements Serializable {
 	public void setEnderecoEntrega(EnderecoEntrega enderecoEntrega) {
 		this.enderecoEntrega = enderecoEntrega;
 	}
-
+	
+	@OneToMany(mappedBy = "pedido", cascade = CascadeType.ALL, orphanRemoval = true)
 	public List<ItemPedido> getItens() {
 		return itens;
 	}
 
 	public void setItens(List<ItemPedido> itens) {
 		this.itens = itens;
-	}
-
-	public static long getSerialversionuid() {
-		return serialVersionUID;
 	}
 
 	@Override
