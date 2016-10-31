@@ -23,7 +23,7 @@ public class Teste {
 		Cliente cliente = new Cliente();
 		cliente.setNome("Andre Luiz da Silva");
 		cliente.setEmail("andreluiz1013@hotmail.com");
-		cliente.setDocumentoReceitaFeredral("123.456.789-10");
+		cliente.setDocumentoReceitaFederal("123.456.789-10");
 		cliente.setTipo(TipoPessoa.JURIDICA);
 
 		Endereco endereco = new Endereco();
