@@ -15,33 +15,18 @@ import javax.persistence.Table;
 public class Endereco implements Serializable {
 
 	private static final long serialVersionUID = 1L;
+	
+	private Long id;
+	private String logradouro;	
+	private String numero;
+	private String complemento;
+	private String cidade;
+	private String uf;
+	private String cep;
+	private Cliente cliente;
 
 	@Id
 	@GeneratedValue
-	private Long id;
-	
-	@Column(nullable = false, length = 150)
-	private String logradouro;
-	
-	@Column(nullable = false, length = 20)
-	private String numero;
-	
-	@Column(length = 150)
-	private String complemento;
-	
-	@Column(nullable = false, length = 60)
-	private String cidade;
-	
-	@Column(nullable = false, length = 60)
-	private String uf;
-	
-	@Column(nullable = false, length = 9)
-	private String cep;
-	
-	@ManyToOne
-	@JoinColumn(name = "cliente_id", nullable = false)
-	private Cliente cliente;
-
 	public Long getId() {
 		return id;
 	}
@@ -49,7 +34,8 @@ public class Endereco implements Serializable {
 	public void setId(Long id) {
 		this.id = id;
 	}
-
+	
+	@Column(nullable = false, length = 150)
 	public String getLogradouro() {
 		return logradouro;
 	}
@@ -57,7 +43,8 @@ public class Endereco implements Serializable {
 	public void setLogradouro(String logradouro) {
 		this.logradouro = logradouro;
 	}
-
+	
+	@Column(nullable = false, length = 20)
 	public String getNumero() {
 		return numero;
 	}
@@ -65,7 +52,8 @@ public class Endereco implements Serializable {
 	public void setNumero(String numero) {
 		this.numero = numero;
 	}
-
+	
+	@Column(length = 150)
 	public String getComplemento() {
 		return complemento;
 	}
@@ -73,7 +61,8 @@ public class Endereco implements Serializable {
 	public void setComplemento(String complemento) {
 		this.complemento = complemento;
 	}
-
+	
+	@Column(nullable = false, length = 60)
 	public String getCidade() {
 		return cidade;
 	}
@@ -81,7 +70,8 @@ public class Endereco implements Serializable {
 	public void setCidade(String cidade) {
 		this.cidade = cidade;
 	}
-
+	
+	@Column(nullable = false, length = 60)
 	public String getUf() {
 		return uf;
 	}
@@ -89,7 +79,8 @@ public class Endereco implements Serializable {
 	public void setUf(String uf) {
 		this.uf = uf;
 	}
-
+	
+	@Column(nullable = false, length = 9)
 	public String getCep() {
 		return cep;
 	}
@@ -97,7 +88,9 @@ public class Endereco implements Serializable {
 	public void setCep(String cep) {
 		this.cep = cep;
 	}
-
+	
+	@ManyToOne
+	@JoinColumn(name = "cliente_id", nullable = false)
 	public Cliente getCliente() {
 		return cliente;
 	}
