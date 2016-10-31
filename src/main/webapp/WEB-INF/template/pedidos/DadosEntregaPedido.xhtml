@@ -13,22 +13,22 @@
 		<p:spacer/>
 		<p:spacer/>
 		
-		<p:outputLabel value="Logradouro"/>
+		<p:outputLabel value="Logradouro" for="entragaLogradouro"/>
 		<p:inputText id="entregaLogradouro" size="50" value="#{cadastroPedidoBean.pedido.enderecoEntrega.logradouro}"/>
 		
-		<p:outputLabel value="Numero"/>
-		<p:inputText id="entregaNumero" size="5"/>
+		<p:outputLabel value="Numero" for="entregaNumeo"/>
+		<p:inputText id="entregaNumero" size="5" value="#{cadastroPedidoBean.pedido.enderecoEntrega.numero}"/>
 		
-		<p:outputLabel value="Complemento"/>
-		<p:inputText id="entregaComplemento" size="50"/>
+		<p:outputLabel value="Complemento" for="entregaComplemento"/>
+		<p:inputText id="entregaComplemento" size="50" value="#{cadastroPedidoBean.pedido.enderecoEntrega.complemento}"/>
 		
-		<p:outputLabel value="Cidade"/>
-		<p:inputText id="entregaCidade" size="20"/>
+		<p:outputLabel value="Cidade" for="entregaCidade"/>
+		<p:inputText id="entregaCidade" size="20" value="#{cadastroPedidoBean.pedido.enderecoEntrega.cidade}"/>
 		
-		<p:outputLabel value="Estado"/>
-		<p:inputText id="entregaEstado" size="20"/>
+		<p:outputLabel value="Estado" for="entregaEstado"/>
+		<p:inputText id="entregaEstado" size="20" value="#{cadastroPedidoBean.pedido.enderecoEntrega.uf}"/>
 		
-		<p:outputLabel value="CEP"/>
-		<p:inputText id="entregaCep" size="10"/>
+		<p:outputLabel value="CEP" for="entregaCep"/>
+		<p:inputText id="entregaCep" size="10" value="#{cadastroPedidoBean.pedido.enderecoEntrega.cep}"/>
 	</p:panelGrid>
 </ui:composition>
