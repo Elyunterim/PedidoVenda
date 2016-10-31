@@ -11,37 +11,14 @@
 	</properties>
 
 	<dependencies>
-		<!-- Weld (implementação do CDI) -->
+		<!-- Implementação do Bean Validation -->		
 		<dependency>
-		   <groupId>org.jboss.weld.servlet</groupId>
-		   <artifactId>weld-servlet</artifactId>
-		   <version>1.1.10.final</version>		   
+		    <groupId>org.hibernate</groupId>
+		    <artifactId>hibernate-validator</artifactId>
+		    <version>5.1.0.Final</version>
+		    <scope>compile</scope>
 		</dependency>
-	
-		<!-- Mojarra (implementação do JSF 2) -->
-		<dependency>
-			<groupId>org.glassfish</groupId>
-			<artifactId>javax.faces</artifactId>
-			<version>2.1.21</version>
-			<scope>compile</scope>
-		</dependency>
-
-		<!-- PrimeFaces (biblioteca de componentes) -->
-		<dependency>
-			<groupId>org.primefaces</groupId>
-			<artifactId>primefaces</artifactId>
-			<version>3.5</version>
-			<scope>compile</scope>
-		</dependency>
-
-		<!-- Tema do bluesky (richfaces) -->
-		<dependency>
-			<groupId>org.primefaces.themes</groupId>
-			<artifactId>bluesky</artifactId>
-			<version>1.0.10</version>
-			<scope>compile</scope>
-		</dependency>
-				
+		
 		<!-- Núcleo do Hibernate -->
 		<dependency>
 			<groupId>org.hibernate</groupId>
@@ -58,15 +35,6 @@
 			<scope>compile</scope>
 		</dependency>
 		
-		<!-- Implementação do Bean Validation -->
-		<!-- https://mvnrepository.com/artifact/org.hibernate/hibernate-validator -->
-		<dependency>
-		    <groupId>org.hibernate</groupId>
-		    <artifactId>hibernate-validator</artifactId>
-		    <version>5.1.0.Final</version>
-		</dependency>
-		
-		
 		<!-- Driver JDBC do MySQL -->
 		<dependency>
 			<groupId>mysql</groupId>
@@ -75,6 +43,52 @@
 			<scope>compile</scope>
 		</dependency>
 		
+		<!-- Weld (implementação do CDI) -->
+		<dependency>
+		   <groupId>org.jboss.weld.servlet</groupId>
+		   <artifactId>weld-servlet</artifactId>
+		   <version>1.1.10.final</version>		   
+		</dependency>
+		
+		<!-- PrimeFaces (biblioteca de componentes) -->
+		<dependency>
+			<groupId>org.primefaces</groupId>
+			<artifactId>primefaces</artifactId>
+			<version>3.5</version>
+			<scope>compile</scope>
+		</dependency>
+	
+		<!-- Mojarra (implementação do JSF 2) -->
+		<dependency>
+			<groupId>org.glassfish</groupId>
+			<artifactId>javax.faces</artifactId>
+			<version>2.1.21</version>
+			<scope>compile</scope>
+		</dependency>		
+
+		<!-- Tema do bluesky (richfaces) -->
+		<dependency>
+			<groupId>org.primefaces.themes</groupId>
+			<artifactId>bluesky</artifactId>
+			<version>1.0.10</version>
+			<scope>compile</scope>
+		</dependency>
+		
+		<!-- Log4J -->    	
+		<dependency>
+			<groupId>log4j</groupId>
+			<artifactId>log4j</artifactId>
+			<version>1.2.17</version>
+			<scope>compile</scope>
+		</dependency>		
+		
+		<!-- Commons Logging (abstrai a implementação de logging) -->
+		<dependency>
+			<groupId>commons-logging</groupId>
+			<artifactId>commons-logging</artifactId>
+			<version>1.1.3</version>
+			<scope>compile</scope>
+		</dependency>
 	</dependencies>
 
 	<build>
