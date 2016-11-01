@@ -13,14 +13,13 @@
 		<h:outputStylesheet library="css" name="sistema.css"/>	
 	</h:head>
 
-	<h:body>
-		
-		<p:ajaxStatus styleClass="ajax-status" onsuccess="configurarMoeda" >
+	<h:body>		
+		<p:ajaxStatus styleClass="ajax-status" onsuccess="configurarMoeda()" >
 			<f:facet name="start">
 				<h:graphicImage library="images" name="loading.gif"/>
 			</f:facet>
 			<f:facet name="complete">
-				<h:outputText value=""></h:outputText>
+				<h:outputText value=""/>
 			</f:facet>
 		</p:ajaxStatus>
 	
@@ -28,12 +27,13 @@
 			<!-- Navbar content -->			  
 			<div style="float: left;">
 				<h:link outcome="/Home">	
-					<h:graphicImage library="images" name="logo-algaworks-azul.fw.png"/>
+					<h:graphicImage library="images" name="logo-algaworks.png"/>
 				</h:link>
 			</div>
 			
 			<div style="float:right; margin-right: 110px;">
-				<span style="float: left; height: 30px; line-height: 30px;  margin-right: 60px; color: #2B6BA2">Olá usuário</span>
+				<span style="float: left; height: 30px; line-height: 30px;  margin-right: 60px;">Olá usuário</span>
+				
 				<h:form style="display: inline-block">
 					<p:menubar styleClass="menu-sistema">
 						<p:submenu label="Cadastros">
@@ -51,31 +51,30 @@
 					</p:menubar>
 				</h:form>
 			</div>
+			<div style="clear: both"></div>
 		</header>
 		
 		<div id="corpo">
-		<ui:insert name="corpo"></ui:insert>
-	</div>
-	
-	<p:separator style="margin-top: 20px;" ></p:separator>
-	
-	<footer>
-		<div class="text-center">
-		Curso Online de Sistemas Comerciais Java EE com CDI, JPA e PrimeFaces - 
-		<a href="http://bit.ly/y8safl" target="_blank">www.algaworks.com</a>
+			<ui:insert name="corpo"/>
 		</div>
-	</footer>
 	
-	<script>
-		function configurarMoeda(){			
-			$(".moeda").maskMoney({decimal:",", thousands: ".", allowZero: true});
-		}
-		
-		$(document).ready(function(){
-			configurarMoeda();
-		});
-		
-	</script>
+		<p:separator style="margin-top: 20px;"/>
 	
+		<footer>
+			<div class="text-center">
+			Curso Online de Sistemas Comerciais Java EE com CDI, JPA e PrimeFaces - 
+			<a href="http://bit.ly/y8safl" target="_blank">www.algaworks.com</a>
+			</div>
+		</footer>
+	
+		<script>
+			function configurarMoeda(){			
+				$(".moeda").maskMoney({decimal:",", thousands: ".", allowZero: true});
+			}
+			
+			$(document).ready(function(){
+				configurarMoeda();
+			});			
+		</script>	
 	</h:body>
 </html>

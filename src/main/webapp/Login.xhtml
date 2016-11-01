@@ -8,39 +8,27 @@
 	  
 	<h:head>	  
 	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-	<title><ui:insert name="titulo">Login</ui:insert></title>
-	<link rel="stylesheet" href="https://cdn.rawgit.com/twbs/bootstrap/v4-dev/dist/css/bootstrap.css"></link>
+	<title>Login</title>
+	
 	<h:outputStylesheet library="css" name="sistema.css"/>	
 	</h:head>
-
-<h:body>
-	
-</h:body>
-	<div class="jumbotron jumbotron-fluid" style="background-color: #fff;"> 	
-		  <div class="container text-center">
-		    <h2 class="display-3">SISPEV</h2>
-		    <p class="lead">Sistema desenvolvido com o treinamento do curso AlgaWorks.</p>
-		  </div>
-	</div>
+	<h:body>
 	
 	<div id="login-dialog">
-		<h1 class="text-center">Login</h1>
+		<h1>Login</h1>
 		
 		<h:form id="frm">
-			<h:panelGrid columns="2">
-				
+			<h:panelGrid columns="2" styleClass="grid-login">				
 				<p:outputLabel value="E-mail"/>				
-			    <p:inputText size="20" />
+			    <p:inputText size="30" />
 			 	
 			    <p:outputLabel value="Senha" />
-			    <p:password size="20" />		
+			    <p:password size="30" />		
 			 	
 			 	<h:panelGroup/>
 			    <p:commandButton value="Login"/>			              
 			</h:panelGrid>			    
 		</h:form>
 	</div>
-	
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
-<script src="https://cdn.rawgit.com/twbs/bootstrap/v4-dev/dist/js/bootstrap.js"></script>
+</h:body>
 </html>
