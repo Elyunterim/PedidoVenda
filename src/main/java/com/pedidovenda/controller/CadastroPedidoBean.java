@@ -7,6 +7,7 @@ import java.util.List;
 import javax.faces.bean.ViewScoped;
 import javax.inject.Named;
 
+import com.pedidovenda.model.EnderecoEntrega;
 import com.pedidovenda.model.Pedido;
 
 @Named
@@ -19,6 +20,7 @@ public class CadastroPedidoBean implements Serializable{
 	
 	public CadastroPedidoBean(){
 		pedido = new Pedido();
+		pedido.setEnderecoEntrega(new EnderecoEntrega());
 		itens = new ArrayList<>();
 		itens.add(1);		
 	}
